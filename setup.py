@@ -9,12 +9,4 @@ setup(name='verifiweather',
       packages=find_packages(),
       install_requires=['requests'],
       scripts=['verifiweather/verifiweather.py'],
-      entry_points={
-        'console_scripts': [
-            'verifiweather = verifiweather:print_weather',
-        ],
-        'gui_scripts': [
-            'verifiweather = verifiweather:print_weather',
-        ]
-    },
       zip_safe=False)
