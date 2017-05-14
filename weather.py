@@ -1,9 +1,7 @@
 #!/usr/bin/env python
-# Verifi Application - Weather App
 # https://github.com/computermax11/verifiweather.git
 
 import requests
-#import json
 import os
 
 apikey = "434c503a384eb9244acb0a458a1f5b2c"
