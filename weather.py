@@ -27,7 +27,7 @@ def get_location(ip=get_client_ip()):
         return "Los Angeles,US"
 
 # Query openweather API
-def get_weather(location=get_location()):
+def get_weather(location):
     data = {"q":location, "appid":apikey, "units":"imperial"}
     result = requests.get(baseurl, params=data)
     if result.ok:
@@ -36,7 +36,10 @@ def get_weather(location=get_location()):
         raise Exception("API Call Failed")
 
 # Output current weather
-def print_weather(weatherdata=get_weather()):
+def print_weather(location=None):
+    if location == None:
+        location = get_location()
+    weatherdata = get_weather(location)
     outputstring = u"Current weather for {0}: {1}\u00b0 and {2}".format(weatherdata['name'], weatherdata['main']['temp'],
 weatherdata['weather'][0]['description'])
     if 'REMOTE_ADDR' in os.environ:
@@ -46,4 +49,3 @@ weatherdata['weather'][0]['description'])
 
 if __name__ == "__main__":
     print_weather()
-
