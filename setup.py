@@ -8,5 +8,5 @@ setup(name='verifiweather',
       author_email='computermax11@gmail.com',
       packages=find_packages(),
       install_requires=['requests'],
-      scripts=['verifiweather.py'],
+      scripts=['verifiweather/verifiweather.py'],
       zip_safe=False)

@@ -36,7 +36,7 @@ def get_weather(location):
         raise Exception("API Call Failed")
 
 # Output current weather
-def print_weather(location=None):
+def current_weather(location=None):
     if location == None:
         location = get_location()
     weatherdata = get_weather(location)
@@ -45,7 +45,7 @@ weatherdata['weather'][0]['description'])
     if 'REMOTE_ADDR' in os.environ:
         outputstring = outputstring.replace(u'\u00b0', '&#176')
         print("content-type: text/html\r\n")
-    print(outputstring)
+    return outputstring
 
 if __name__ == "__main__":
-    print_weather()
+    print(current_weather())
