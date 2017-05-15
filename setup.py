@@ -8,8 +8,7 @@ setup(name='verifiweather',
       author_email='computermax11@gmail.com',
       install_requires=['requests', 'ipaddr'],
       packages=find_packages(),
-      scripts=['verifiweather/verifiweather.py'],
       entry_points = {
-          'console_scripts': ['veriweather=verifiweather.command_line:main'],
+          'console_scripts': ['veriweather = verifiweather.__main__:main'],
       },
       zip_safe=False)
