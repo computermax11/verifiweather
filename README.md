@@ -17,10 +17,7 @@ The program can be installed using python setuptools.  Use
 
 The program can be run either from the command line or as a cgi script.  If a location is not given, the script will
 try to determine your location by your IP, whether local or over SSH.  The current weather will then be displayed.
-
-The script also can display in a browser.  An included script for linux will start the service;
-```chmod +x runcgi
-./runcgi```
+To view the weather in a browser, use the included runcgi.sh shell script for linux.
 
 ## Compatibility ##
 The script will run on Python 2.7 as well as Python 3 (tested 3.5).  It also works on both Linux and Windows
