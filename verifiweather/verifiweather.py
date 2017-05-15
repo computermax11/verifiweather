@@ -3,6 +3,7 @@
 
 import requests
 import os
+import sys
 
 apikey = "434c503a384eb9244acb0a458a1f5b2c"
 baseurl = "http://api.openweathermap.org/data/2.5/weather?"
@@ -33,9 +34,10 @@ def get_weather(location):
     if result.ok:
         return result.json()
     else:
-        raise Exception("API Call Failed")
+	print('no weather data for location: %s' % location)
+#        sys.exit(1)
 
-# Output current weather
+# Return current weather string
 def current_weather(location=None):
     if location == None:
         location = get_location()
@@ -44,8 +46,13 @@ def current_weather(location=None):
 weatherdata['weather'][0]['description'])
     if 'REMOTE_ADDR' in os.environ:
         outputstring = outputstring.replace(u'\u00b0', '&#176')
-        print("content-type: text/html\r\n")
     return outputstring
 
 if __name__ == "__main__":
-    print(current_weather())
+    location = None
+    if 'REMOTE_ADDR' in os.environ:
+        print("content-type: text/html\r\n")
+    else:
+        if len(sys.argv) > 1:
+            location = ' '.join(sys.argv[1:])
+    print(current_weather(location))
