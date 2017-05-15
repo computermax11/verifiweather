@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='verifiweather',
-      version='0.1.3',
+      version='0.1.4',
       description='Verifi Job Application Weather App',
       url='http://github.com/computermax11/verifiweather.git',
       author='Max Schulberg',
