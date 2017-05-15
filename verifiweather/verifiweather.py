@@ -4,6 +4,7 @@
 import requests
 import os
 import sys
+import ipaddr
 
 apikey = "434c503a384eb9244acb0a458a1f5b2c"
 baseurl = "http://api.openweathermap.org/data/2.5/weather?"
@@ -13,7 +14,11 @@ ipurl = "http://icanhazip.com/"
 # Get client IP
 def get_client_ip():
     if 'SSH_CLIENT' in os.environ:
-        return os.environ['SSH_CLIENT'].split()[0]
+        clientip = os.environ['SSH_CLIENT'].split()[0]
+        if ipaddr.IPv4Address(clientip).is_private:
+            return requests.get(ipurl).text.strip()        
+        else:
+            return os.environ['SSH_CLIENT'].split()[0]
     elif 'REMOTE_ADDR' in os.environ:
         return os.environ['REMOTE_ADDR']
     else:
