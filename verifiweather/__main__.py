@@ -3,10 +3,8 @@ import sys
 from verifiweather import *
 
 def main(args=None):
-    if args is None and len(sys.argv) > 1:
-        args = sys.argv[1:]
-    else:
-        args = None
+    if len(sys.argv) > 1 and args == None:
+        args = ' '.join(sys.argv[1:])
     print(current_weather(args))
 
 if __name__ == "__main__":

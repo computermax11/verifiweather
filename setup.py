@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='verifiweather',
-      version='0.1',
+      version='0.1.3',
       description='Verifi Job Application Weather App',
       url='http://github.com/computermax11/verifiweather.git',
       author='Max Schulberg',
@@ -9,6 +9,6 @@ setup(name='verifiweather',
       install_requires=['requests', 'ipaddr'],
       packages=find_packages(),
       entry_points = {
-          'console_scripts': ['veriweather = verifiweather.__main__:main'],
+          'console_scripts': ['verifiweather = verifiweather.__main__:main'],
       },
       zip_safe=False)
