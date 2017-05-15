@@ -8,8 +8,8 @@
 * Upload your project to github, and provide directions for setting up and executing your script.
 
 ---
-## Install ##
-The program can be installed using python setuptools.  Use
+## Install #
+The program can be installed using python setuptools.
 ```python setup.py install```
 
 ## Use ##
