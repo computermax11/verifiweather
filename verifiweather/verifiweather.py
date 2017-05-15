@@ -50,12 +50,15 @@ def current_weather(location=None):
     outputstring = u"Current weather for {0}: {1}\u00b0 and {2}".format(weatherdata['name'], weatherdata['main']['temp'],
 weatherdata['weather'][0]['description'])
     if 'REMOTE_ADDR' in os.environ:
-        outputstring = "content-type: text/html\r\n" + outputstring.replace(u'\u00b0', '&#176')
+        outputstring = outputstring.replace(u'\u00b0', '&#176')
     return outputstring
 
 if __name__ == "__main__":
     location = None
-    print sys.argv
     if len(sys.argv) > 1:
         location = ' '.join(sys.argv[1:])
-    print(current_weather(location))
+    if 'REMOTE_ADDR' in os.environ:
+        print('content-type: text/html\r\n')
+        print(current_weather())
+    else:
+        print(current_weather(location))
