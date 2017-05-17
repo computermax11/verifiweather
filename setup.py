@@ -6,9 +6,14 @@ setup(name='verifiweather',
       url='http://github.com/computermax11/verifiweather.git',
       author='Max Schulberg',
       author_email='computermax11@gmail.com',
-      install_requires=['requests', 'ipaddr'],
+      install_requires=[
+          'requests',
+          'ipaddr',
+          'easygui;platform_system=="Windows"'
+      ],  
       packages=find_packages(),
       entry_points = {
           'console_scripts': ['verifiweather = verifiweather.__main__:main'],
+          'gui_scripts': ['guiweather = veriweather.__gui__:start_func']  
       },
       zip_safe=False)
