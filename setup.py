@@ -8,12 +8,12 @@ setup(name='verifiweather',
       author_email='computermax11@gmail.com',
       install_requires=[
           'requests',
-          'ipaddr',
+          'ipaddress',
           'easygui'   # 'easygui;platform_system=="Windows"'
       ],  
       packages=find_packages(),
       entry_points = {
           'console_scripts': ['verifiweather = verifiweather.__main__:main'],
-          'gui_scripts': ['verifiweatherg = verifiweather.__gui__:start_func']  
+          'gui_scripts': ['vwgui = verifiweather.__gui__:start_func']  
       },
       zip_safe=False)
