@@ -5,6 +5,7 @@ import requests
 import os
 import sys
 import ipaddr
+import pycountry
 
 apikey = "434c503a384eb9244acb0a458a1f5b2c"
 baseurl = "http://api.openweathermap.org/data/2.5/weather?"
@@ -47,8 +48,8 @@ def current_weather(location=None):
     if location == None or location == []:
         location = get_location()
     weatherdata = get_weather(location)
-    outputstring = u"Current weather for {0}: {1}\u00b0 and {2}".format(weatherdata['name'], weatherdata['main']['temp'],
-weatherdata['weather'][0]['description'])
+    outputstring = u"Current weather for {0} ({3}): {1}\u00b0 and {2}".format(weatherdata['name'], weatherdata['main']['temp'],
+weatherdata['weather'][0]['description'], pycountry.countries.get(alpha2=weatherdata['sys']['country']).name)
     if 'REMOTE_ADDR' in os.environ:
         outputstring = outputstring.replace(u'\u00b0', '&#176')
     return outputstring

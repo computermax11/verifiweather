@@ -10,5 +10,6 @@ setup(name='verifiweather',
       packages=find_packages(),
       entry_points = {
           'console_scripts': ['verifiweather = verifiweather.__main__:main'],
+          'gui_scripts': ['winverifiweather = verifiweather_gui:start_func'],
       },
       zip_safe=False)
