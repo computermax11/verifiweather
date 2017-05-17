@@ -9,7 +9,7 @@ setup(name='verifiweather',
       install_requires=[
           'requests',
           'ipaddr',
-          'easygui;platform_system=="Windows"'
+          'easygui'   # 'easygui;platform_system=="Windows"'
       ],  
       packages=find_packages(),
       entry_points = {
