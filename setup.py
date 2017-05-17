@@ -8,7 +8,7 @@ setup(name='verifiweather',
       author_email='computermax11@gmail.com',
       install_requires=[
           'requests',
-          'ipaddr',
+          'ipaddress',
           'easygui'   # 'easygui;platform_system=="Windows"'
       ],  
       packages=find_packages(),
